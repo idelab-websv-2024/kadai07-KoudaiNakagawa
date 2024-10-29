@@ -1,6 +1,5 @@
-
-
 <!DOCTYPE="utf-8">
+<html>
   <head>
     <title></title>
 
@@ -10,13 +9,20 @@
     function searchCallback(result) {
       output = document.getElementById('outputArea');
       results = result.results;
+
+      //alert(result.resultCount)
       for (var r of results) {
         var oneline = document.createElement('div');
+        oneline.innerHTML += r["trackName"];
+        oneline.innerHTML += "<br>";
+
+        /*
         oneline.innerHTML = r["collectionName"];
-		oneline.innerHTML += "<br>";
-		oneline.innerHTML += r["artistName"];
-		oneline.innerHTML += "<hr />";
-		output.appendChild(oneline);
+        oneline.innerHTML += "<br>";
+        oneline.innerHTML += r["artistName"];
+        oneline.innerHTML += "<hr />";
+        */
+        output.appendChild(oneline);
       }
     }
     </script>
@@ -27,7 +33,7 @@
 <div id='status'></div>
 <div id='outputArea'></div>
 
-<script id=caller src='https://itunes.apple.com/search?term=手嶌&lang=ja_JP&callback=searchCallback'></script>
+<script id=caller src='https://itunes.apple.com/search?term=あ&country=JP&limit=1000&callback=searchCallback'></script>
 
   </body>
 </html>
